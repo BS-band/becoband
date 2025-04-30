@@ -1,0 +1,586 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* --- Variables --- */
+:root {
+    /* New Palette based on user request */
+    --primary-color: #d90429;       /* Fire Engine Red */
+    --secondary-color: #ef233c;     /* Red Pantone */
+    --dark-color: #2b2d42;          /* Space Cadet */
+    --medium-color: #8d99ae;        /* Cool Gray */
+    --light-color: #edf2f4;         /* Anti-flash White */
+    --white-color: #ffffff;         /* White */
+
+    /* Keep Font definitions */
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* --- Reset & Basic Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed header */
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--dark-color); /* Use Space Cadet for text */
+    background-color: var(--light-color); /* Use Anti-flash White for background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove bottom space */
+    background-color: var(--medium-color); /* Placeholder background using Cool Gray */
+}
+
+a {
+    color: var(--primary-color); /* Fire Engine Red links */
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--secondary-color); /* Red Pantone for hover */
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+}
+
+/* Heading Colors */
+h1 { font-size: 2.8rem; color: var(--primary-color); } /* Fire Engine Red */
+h2 { font-size: 2.2rem; color: var(--primary-color); } /* Fire Engine Red */
+h3 { font-size: 1.6rem; color: var(--dark-color); }    /* Space Cadet */
+h4 { font-size: 1.2rem; color: var(--dark-color); }    /* Space Cadet */
+
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--white-color); /* White header */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Fire Engine Red logo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.logo a:hover {
+    color: var(--secondary-color); /* Red Pantone hover */
+}
+
+/* --- Navigation --- */
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: var(--dark-color); /* Space Cadet nav links */
+    font-weight: 700;
+    padding: 5px 0;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color); /* Fire Engine Red underline */
+    transition: width var(--transition-speed) ease;
+}
+
+.main-nav a:hover,
+.main-nav .active a {
+    color: var(--primary-color); /* Fire Engine Red hover/active */
+}
+
+.main-nav a:hover::after,
+.main-nav .active a::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--dark-color); /* Space Cadet menu icon */
+    cursor: pointer;
+}
+
+/* --- Hero Section (Homepage) --- */
+.hero {
+     /* Dark overlay using Space Cadet */
+     background: linear-gradient(rgba(43, 45, 66, 0.7), rgba(43, 45, 66, 0.7)), url('https://via.placeholder.com/1920x1080/d90429/FFFFFF?text=Becoband+Hero+Placeholder') no-repeat center center/cover;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color); /* White text on hero */
+    margin-top: 74px; /* Adjust based on header height */
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: var(--white-color); /* White hero title */
+    font-size: 3.5rem;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color); /* Fire Engine Red button */
+    color: var(--white-color); /* White text */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color); /* Red Pantone hover */
+    color: var(--white-color);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--white-color); /* White border */
+    color: var(--white-color); /* White text */
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+     background-color: var(--white-color); /* White background on hover */
+     color: var(--secondary-color); /* Red Pantone text */
+     transform: translateY(-3px);
+}
+
+
+/* --- General Section Styling --- */
+.page-header {
+    padding: 120px 0 60px;
+    text-align: center;
+    background-color: var(--primary-color); /* Fire Engine Red background */
+    color: var(--white-color); /* White text */
+}
+.page-header h1 {
+    color: var(--white-color);
+}
+.page-header p {
+    color: rgba(255,255,255,0.9); /* Slightly transparent white */
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+.section {
+    padding: 60px 0;
+}
+
+.section-bg {
+    background-color: var(--white-color); /* White background for contrast */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--primary-color); /* Fire Engine Red title */
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color); /* Red Pantone underline */
+}
+
+/* --- Cards (Nabídka, Tým) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--white-color); /* White card */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(43, 45, 66, 0.1); /* Subtle shadow using Space Cadet */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--light-color); /* Use light color for border */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(43, 45, 66, 0.15); /* Slightly darker shadow on hover */
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--medium-color); /* Cool gray background for image area */
+}
+
+.card-content {
+    padding: 25px;
+}
+.card-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.7em;
+    color: var(--primary-color); /* Fire Engine Red card titles */
+}
+.card-content ul {
+    padding-left: 20px;
+    list-style: disc;
+    margin-bottom: 1em;
+    font-size: 0.95rem;
+    color: var(--dark-color); /* Use Space Cadet for list text */
+}
+.card-content ul li::marker { /* Style bullet points */
+    color: var(--medium-color);
+}
+
+.card-content strong { /* Price indication */
+    color: var(--secondary-color); /* Red Pantone for price */
+    font-weight: 700;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Team Card Specific */
+.team-member-card .card-image img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto 0;
+    border: 4px solid var(--light-color); /* Light border around image */
+    object-fit: cover;
+}
+.team-member-card .card-content {
+    text-align: center;
+}
+.team-member-card h4 { /* Role */
+    color: var(--secondary-color); /* Red Pantone for role */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+}
+.team-member-card p {
+    font-size: 0.9rem;
+    color: var(--medium-color); /* Cool Gray for description */
+}
+/* Specific rule for 2x2 grid on team section for larger screens */
+@media (min-width: 768px) {
+    #team .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px; /* Limit width for better centering */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* --- About Us Content --- */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    color: var(--dark-color); /* Space Cadet text */
+}
+.about-content ul {
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+.about-content li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5em;
+    position: relative;
+}
+.about-content li::before {
+     content: '✓';
+     position: absolute;
+     left: 0;
+     color: var(--primary-color); /* Fire Engine Red checkmark */
+     font-weight: bold;
+}
+
+/* --- Contact Section --- */
+.contact-info address {
+    font-style: normal;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--dark-color); /* Space Cadet address text */
+}
+.contact-info strong {
+    font-weight: 700;
+    color: var(--dark-color); /* Darker for emphasis */
+}
+.contact-info a {
+     color: var(--primary-color); /* Fire Engine Red links */
+     font-weight: bold;
+}
+.contact-info a:hover {
+     color: var(--secondary-color); /* Red Pantone hover */
+}
+
+.contact-links ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.contact-links li { margin: 5px;}
+.contact-links a {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Fire Engine Red links */
+}
+.contact-links a:hover {
+    color: var(--secondary-color); /* Red Pantone hover */
+}
+.contact-links h3 {
+     font-size: 1.2rem;
+     margin-bottom: 1rem;
+     color: var(--dark-color); /* Space Cadet heading */
+     text-align: center; /* Center heading */
+}
+
+/* --- Ukázky (Demos) --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(43, 45, 66, 0.1); /* Space Cadet shadow */
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.audio-placeholder { /* Placeholder for audio */
+    background-color: var(--white-color);
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(43, 45, 66, 0.08); /* Space Cadet shadow */
+    border: 1px solid var(--light-color);
+    color: var(--dark-color); /* Space Cadet text */
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--dark-color); /* Space Cadet footer background */
+    color: var(--medium-color); /* Cool Gray text */
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+.site-footer a {
+    color: var(--light-color); /* Light color for links */
+}
+.site-footer a:hover {
+    color: var(--white-color); /* White hover */
+}
+.footer-links {
+    margin-bottom: 15px; /* Add space between links and copyright */
+}
+.footer-links a {
+    margin: 0 10px;
+}
+
+
+/* --- Animations --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.4rem; }
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.2rem; }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    /* Ensure team grid stacks on medium screens if needed */
+    #team .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 767px) { /* Adjusted breakpoint */
+    html { scroll-padding-top: 65px; }
+    .site-header { padding: 10px 0; }
+    .logo a { font-size: 1.3rem; }
+    .menu-toggle { display: block; }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+    .main-nav.is-open {
+        max-height: 500px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .main-nav li {
+        margin-left: 0;
+        text-align: center;
+        border-bottom: 1px solid var(--light-color); /* Light border */
+    }
+     .main-nav li:last-child {
+        border-bottom: none;
+    }
+    .main-nav a {
+        display: block;
+        padding: 15px 20px;
+        width: 100%;
+        color: var(--dark-color); /* Space Cadet text */
+    }
+     .main-nav a::after { display: none; }
+    .main-nav a:hover, .main-nav .active a {
+        background-color: var(--light-color); /* Light background */
+        color: var(--primary-color); /* Fire Engine Red text */
+    }
+
+    .hero { margin-top: 64px; height: 70vh; min-height: 400px;}
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.1rem; }
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+    .section-title { font-size: 2rem; }
+
+    .page-header { padding: 100px 0 40px; }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+     /* Ensure team grid stacks correctly */
+     #team .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .video-grid {
+         grid-template-columns: 1fr; /* Stack videos */
+    }
+    .footer-links {
+        margin-bottom: 10px;
+    }
+    .footer-links a {
+        margin: 5px 8px; /* Adjust spacing for mobile */
+        display: inline-block; /* Ensure proper spacing */
+    }
+}
