@@ -297,12 +297,6 @@ ul {
     object-fit: cover;
     background-color: var(--medium-color); /* Cool gray background for image area */
 }
-/* Styles for cards on nabidka.html where card-image is removed */
-#services .card {
-    /* If you want cards to have a minimum height even without images */
-    /* min-height: 250px; */ /* Example: Adjust as needed */
-}
-
 
 .card-content {
     padding: 25px;
