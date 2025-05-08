@@ -163,7 +163,7 @@ ul {
 /* --- Hero Section (Homepage) --- */
 .hero {
      /* Dark overlay using Space Cadet */
-     background: linear-gradient(rgba(43, 45, 66, 0.7), rgba(43, 45, 66, 0.7)), url('https://via.placeholder.com/1920x1080/d90429/FFFFFF?text=Becoband+Hero+Placeholder') no-repeat center center/cover;
+     background: linear-gradient(rgba(43, 45, 66, 0.7), rgba(43, 45, 66, 0.7)), url('../pics/becoband-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     min-height: 500px;
     display: flex;
@@ -282,6 +282,8 @@ ul {
     box-shadow: 0 4px 15px rgba(43, 45, 66, 0.1); /* Subtle shadow using Space Cadet */
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--light-color); /* Use light color for border */
+    display: flex; /* Added for vertical alignment if card-image is removed */
+    flex-direction: column; /* Added for vertical alignment */
 }
 
 .card:hover {
@@ -295,9 +297,16 @@ ul {
     object-fit: cover;
     background-color: var(--medium-color); /* Cool gray background for image area */
 }
+/* Styles for cards on nabidka.html where card-image is removed */
+#services .card {
+    /* If you want cards to have a minimum height even without images */
+    /* min-height: 250px; */ /* Example: Adjust as needed */
+}
+
 
 .card-content {
     padding: 25px;
+    flex-grow: 1; /* Allows content to fill space if card is flex container */
 }
 .card-content h3 {
     margin-top: 0;
